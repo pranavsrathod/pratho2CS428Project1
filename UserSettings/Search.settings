@@ -13,6 +13,9 @@ scopes = {
 	"last_search.F8949528" = "ref:24004:"
 	"OpenInspectorPreview.F8949528" = "0"
 	"currentGroup.F8949528" = "all"
+	"last_search.DA949528" = "mergecube"
+	"OpenInspectorPreview.DA949528" = "0"
+	"currentGroup.DA949528" = "all"
 }
 providers = {
 	find = {
