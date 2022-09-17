@@ -8,7 +8,7 @@ public class ClassCubeWeatherAPI : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject weatherTextObject;
-    string url = "http://api.openweathermap.org/data/2.5/weather?lat=43.7230&lon=10.3966&APPID=7a3f8b015b2086e1a8d7e60806e9d8d1&units=metric";
+    string url = "https://api.openweathermap.org/data/2.5/weather?lat=51.48&lon=-0.17&APPID=7a3f8b015b2086e1a8d7e60806e9d8d1&units=metric";
     void Start()
     {
         InvokeRepeating("GetDataFromWeb", 2f, 600f);
