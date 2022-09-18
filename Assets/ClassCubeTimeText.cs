@@ -9,7 +9,7 @@ using TMPro;
 public class ClassCubeTimeText : MonoBehaviour
 {
     public GameObject classCubeTimeText;
-    string url = "http://worldtimeapi.org/api/timezone/Europe/Rome";
+    string url = "http://worldtimeapi.org/api/timezone/Europe/London";
     // Start is called before the first frame update
     void Start()
     {
@@ -48,19 +48,19 @@ public class ClassCubeTimeText : MonoBehaviour
                 var temp = webRequest.downloadHandler.text.Substring((startDate + 22), (endDate - startDate - 39));
                 Debug.Log(temp);
 
-                string hh = temp.Substring(0, temp.IndexOf(":"));
-                Debug.Log(hh);
-                string mm = temp.Substring(temp.IndexOf(":")+1);
-                Debug.Log(mm);
+                // string hh = temp.Substring(0, temp.IndexOf(":"));
+                // Debug.Log(hh);
+                // string mm = temp.Substring(temp.IndexOf(":")+1);
+                // Debug.Log(mm);
 
-                int hours = Int32.Parse(hh);
-                string half;
-                if (hours > 12) {
-                    hours = hours - 12;
-                    half = "PM";
-                } else {
-                    half = "AM";
-                }
+                // int hours = Int32.Parse(hh);
+                // string half;
+                // if (hours > 12) {
+                //     hours = hours - 12;
+                //     half = "PM";
+                // } else {
+                //     half = "AM";
+                // }
             	// // grab the current temperature and simplify it if needed
             	// int startTemp = webRequest.downloadHandler.text.IndexOf("temp",0);
             	// int endTemp = webRequest.downloadHandler.text.IndexOf(",",startTemp);
@@ -71,7 +71,8 @@ public class ClassCubeTimeText : MonoBehaviour
                 // int endConditions = webRequest.downloadHandler.text.IndexOf(",",startConditions);
                 // string conditions = webRequest.downloadHandler.text.Substring(startConditions+7, (endConditions-startConditions-8));
                 // //Debug.Log(conditions);
-                classCubeTimeText.GetComponent<TextMeshPro>().text = "" + hours + ":" + mm + " " + half;
+                // classCubeTimeText.GetComponent<TextMeshPro>().text = "" + hours + ":" + mm + " " + half;
+                classCubeTimeText.GetComponent<TextMeshPro>().text = "" + temp;
                 // weatherTextObject.GetComponent<TextMeshPro>().text = "" + easyTempF.ToString() + "°F\n" + conditions;
             }
         }

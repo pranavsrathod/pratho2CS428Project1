@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using System;
 // using System.DateTime;
 using TMPro;
 
@@ -47,6 +48,20 @@ public class RomeTime : MonoBehaviour
                 var temp = webRequest.downloadHandler.text.Substring((startDate + 22), (endDate - startDate - 39));
                 // var temp = webRequest.downloadHandler.text.Substring((startDate + 22), (endDate - startDate));
                 Debug.Log(temp);
+                
+                string hh = temp.Substring(0, temp.IndexOf(":"));
+                Debug.Log(hh);
+                string mm = temp.Substring(temp.IndexOf(":")+1);
+                Debug.Log(mm);
+
+                int hours = Int32.Parse(hh);
+                string half;
+                if (hours > 12) {
+                    hours = hours - 12;
+                    half = "PM";
+                } else {
+                    half = "AM";
+                }
                 // string hh = temp.Substring(0, temp.IndexOf(":"));
                 // Debug.Log(hh);
             	// // grab the current temperature and simplify it if needed
@@ -59,7 +74,8 @@ public class RomeTime : MonoBehaviour
                 // int endConditions = webRequest.downloadHandler.text.IndexOf(",",startConditions);
                 // string conditions = webRequest.downloadHandler.text.Substring(startConditions+7, (endConditions-startConditions-8));
                 // //Debug.Log(conditions);
-                pisaTimeText.GetComponent<TextMeshPro>().text = "" + temp;
+                // pisaTimeText.GetComponent<TextMeshPro>().text = "" + temp;
+                pisaTimeText.GetComponent<TextMeshPro>().text = "" + hours + ":" + mm + " " + half;
                 // weatherTextObject.GetComponent<TextMeshPro>().text = "" + easyTempF.ToString() + "°F\n" + conditions;
             }
         }

@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mergeCubeLightScript : MonoBehaviour
+public class ClassCubeLightScript : MonoBehaviour
 {
-    public GameObject mergeCubeObject;
-    public GameObject mergeCubeLightObject;
+   public GameObject classCubeObject;
+    public GameObject classCubeLightObject;
     private bool turntDown = false;
     private bool prevWasDown = false;
     
     // Start is called before the first frame update
     void Start()
     {
-    //  /Users/pranavrathod/Documents/GitHub/pratho2CS428Project1/Assets/ClassCubeLightScript.cs
-    // /Users/pranavrathod/Documents/GitHub/pratho2CS428Project1/Assets/mergeCubeLightScript.cs
+        
     }
 
     // Update is called once per frame
@@ -26,24 +25,26 @@ public class mergeCubeLightScript : MonoBehaviour
         // https://answers.unity.com/questions/1003884/how-to-check-if-an-object-is-upside-down.html
         // Debug.Log(" Dot Product : " + Vector3.Dot(mergeCubeObject.transform.up, Vector3.down));
          
-         if ((Vector3.Dot(mergeCubeObject.transform.up, Vector3.down) > 0) && (turntDown == false) ){
+         if ((Vector3.Dot(classCubeObject.transform.up, Vector3.down) > 0) && (turntDown == false) ){
             
             // turntDown = true;
 
-            Debug.Log(mergeCubeLightObject.GetComponent<Light>().color);
+            Debug.Log(classCubeLightObject.GetComponent<Light>().color);
 
 
         //  }
            
             Debug.Log("UPSIDE DOWN");
-            string color = "" + mergeCubeLightObject.GetComponent<Light>().color;
-            if (mergeCubeLightObject.GetComponent<Light>().color == Color.red){
-                Debug.Log("Hi ");
-                mergeCubeLightObject.GetComponent<Light>().color = Color.blue;
+            // string color = "" + mergeCubeLightObject.GetComponent<Light>().color;
+            if (classCubeLightObject.GetComponent<Light>().intensity == 10){
+                Debug.Log("Increasing Intensity ");
+                classCubeLightObject.GetComponent<Light>().intensity = 1000;
+                // mergeCubeLightObject.GetComponent<Light>().color = Color.blue;
                 turntDown = true;
             } else {
-                mergeCubeLightObject.GetComponent<Light>().color = Color.red;
-                Debug.Log("Bye");
+                // mergeCubeLightObject.GetComponent<Light>().color = Color.red;
+                classCubeLightObject.GetComponent<Light>().intensity = 10;
+                Debug.Log("Decreasing the Intensity");
                 turntDown = true;
             }
             // if (turntDown && !prevWasDown){
@@ -55,7 +56,7 @@ public class mergeCubeLightScript : MonoBehaviour
             // }
             //  prevWasDown = true;
          }
-         else if (!(Vector3.Dot(mergeCubeObject.transform.up, Vector3.down) > 0) && (turntDown == true)){
+         else if (!(Vector3.Dot(classCubeObject.transform.up, Vector3.down) > 0) && (turntDown == true)){
             turntDown = false;
          }
     }
